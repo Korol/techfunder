@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                  'filter' => false,
                  'format' => 'html',
                  'value' => function($data){
-                    return (!empty($data->picture)) ? Html::img($data->picture) : '';
+                    return (!empty($data->picture)) ? Html::img($data->picture, ['style' => 'max-width: 100px;']) : '';
                  }
              ],
              'ean',

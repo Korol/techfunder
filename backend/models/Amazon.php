@@ -46,7 +46,7 @@ class Amazon
             $product->formatted_price = ArrayHelper::getValue($productInfo, 'Items.Item.ItemAttributes.ListPrice.FormattedPrice', '');
             $product->ean = ArrayHelper::getValue($productInfo, 'Items.Item.ItemAttributes.EAN', '');
             $product->brand = ArrayHelper::getValue($productInfo, 'Items.Item.ItemAttributes.Brand', '');
-            $product->picture = ArrayHelper::getValue($productInfo, 'Items.Item.SmallImage.URL', '');
+            $product->picture = ArrayHelper::getValue($productInfo, 'Items.Item.MediumImage.URL', '');
             $product->update();
             return true;
         }

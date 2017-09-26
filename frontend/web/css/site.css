@@ -118,3 +118,100 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/* Custom CSS */
+.header-nav {
+    background-color: #fff;
+    border-color: #fff;
+    padding: 10px 0;
+}
+.header-nav-links > li > a.btn-primary {
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.content-wrap {
+    width: 100%;
+    height: auto;
+    padding: 10px 10px;
+}
+.index-nav {
+    border-bottom: 1px solid lightgrey;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.lgreen {
+    color: #00b3ee;
+}
+.index-filters {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btn-text-left {
+    text-align: left;
+    position: relative;
+}
+.btn-text-left > span.glyphicon-chevron-down {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.products-list-wrap > .row {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.product-list-title > p {
+    padding: 0;
+    margin: 0;
+}
+.product-list-title img:hover {
+    cursor: pointer;
+}
+.price-box {
+    width: 170px;
+    height: auto;
+    border: 1px solid #5e5e5e;
+    margin: 0 20px 0 auto;
+}
+.price-box-header {
+    background-color: #5cb85c;
+    text-align: center;
+    font-weight: bold;
+}
+.price-box-content {
+    font-size: 24px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.price-box-footer {
+    background-color: #000;
+    color: #5cb85c;
+    text-align: center;
+    font-weight: bold;
+}
+.pli {
+    width: 250px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+.pli-qty {
+    width: 70px;
+    height: 25px;
+    background-color: #5cb85c;
+    color: #fff;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+.pli-title {
+    width: 180px;
+    height: 25px;
+    background-color: lightgrey;
+}
+.pli-title span {
+    margin-left: 10px;
+    font-size: 12px;
+}
+.pli-link {
+    margin-top: 17px;
+}

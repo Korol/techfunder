@@ -1,53 +1,86 @@
 <?php
+/**
+ * @var $products
+ */
 
-/* @var $this yii\web\View */
+use yii\helpers\Html;
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+<div class="row index-nav">
+    <div class="col-md-6">
+        <p class="text-left">880 Ergebnisse fur <a href="#">"best tech":</a></p>
     </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+    <div class="col-md-6">
+        <p class="text-right">Vergleichen</p>
     </div>
 </div>
+
+<div class="row index-nav index-filters">
+    <div class="col-md-6">
+        Filtern nach:
+        <button class="btn btn-default btn-sm">GALAXY <span aria-hidden="true">&times;</span></button>
+        <button class="btn btn-default btn-sm">S7 <span aria-hidden="true">&times;</span></button>
+        <button class="btn btn-default btn-sm">Alles entfernen <span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="col-md-6">
+        <div class="row clearfix">
+            <div class="col-sm-4 pull-right">
+                <button class="btn btn-default btn-sm btn-block btn-text-left">Relevanz <span class="glyphicon glyphicon-chevron-down"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if(!empty($products)): ?>
+<div class="products-list-wrap">
+    <?php foreach($products as $product): ?>
+    <div class="row index-nav">
+        <div class="col-md-3 product-list-img">
+            <?= (!empty($product['picture'])) ? Html::img($product['picture'], ['alt' => $product['title']]) : ''; ?>
+        </div>
+        <div class="col-md-3 product-list-title">
+            <p>
+                <?= Html::a($product['title'], $product['url']); ?>
+            </p>
+            <p>von <?= $product['brand']; ?></p>
+            <p>
+                <?= Html::img('@web/images/stars.png'); ?>
+            </p>
+            <p><a href="#">796 Bewertungsanalysen</a></p>
+        </div>
+        <div class="col-md-3 product-list-price">
+            <div class="price-box">
+                <div class="price-box-header">SEHR GUT</div>
+                <div class="price-box-content"><?= $product['formatted_price']; ?></div>
+                <div class="price-box-footer">ReviewScore</div>
+            </div>
+        </div>
+        <div class="col-md-3 product-list-info">
+            <?php
+            $comments = [
+                ['qty' => 219, 'title' => 'Akku'],
+                ['qty' => 29, 'title' => 'Fingerprint'],
+                ['qty' => 7, 'title' => 'Gear Vr'],
+            ];
+            foreach ($comments as $comment):
+            ?>
+            <div class="pli clearfix">
+                <div class="pli-qty pull-left">
+                    <span class="pli-qty-text">
+                        <?= $comment['qty']; ?> <span class="glyphicon glyphicon-comment"></span>
+                    </span>
+                </div>
+                <div class="pli-title pull-right">
+                    <span><?= $comment['title']; ?></span>
+                </div>
+            </div>
+            <?php endforeach; ?>
+            <div class="pli-link">
+                <a href="#"><?= rand(10, 99); ?> weitere Schlusselthemen</a>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
