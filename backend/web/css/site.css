@@ -73,7 +73,7 @@ a.desc:after {
 }
 
 .grid-view td {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 .grid-view .filters input,
@@ -117,4 +117,8 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+.load-new-btn {
+    margin-left: 10px;
 }
