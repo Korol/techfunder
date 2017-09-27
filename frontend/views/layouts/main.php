@@ -5,6 +5,8 @@
 
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 
 AppAsset::register($this);
 ?>
@@ -23,7 +25,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <nav class="navbar navbar-default header-nav">
+    <?php /*nav class="navbar navbar-default header-nav">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -33,7 +35,9 @@ AppAsset::register($this);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><?= Html::encode($this->title) ?></a>
+                <a class="" href="#">
+                    <?= Html::img('@web/images/logo.png', ['class' => 'top-logo-img', 'alt' => $this->title]); ?>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,15 +45,38 @@ AppAsset::register($this);
                 <ul class="nav navbar-nav navbar-right header-nav-links">
                     <li><a href="#">REVIEWSCORE</a></li>
                     <li><a href="#">LOGIN</a></li>
-                    <li><a href="#" class="btn btn-primary btn-">FUR HANDLER</a></li>
+                    <li><a href="#" class="btn btn-primary">FUR HANDLER</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
-    </nav>
+    </nav*/?>
+    <?php
+    NavBar::begin([
+        'brandLabel' => Html::img('@web/images/logo.png', ['class' => 'top-logo-img', 'alt' => $this->title]),
+        'brandUrl' => Yii::$app->homeUrl,
+        'brandOptions' => [],
+        'innerContainerOptions' => ['class' => 'container-fluid'],
+        'options' => [
+//            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar navbar-default header-nav',
+        ],
+    ]);
+    $menuItems = [
+        ['label' => 'REVIEWSCORE', 'url' => ['#']],
+        ['label' => 'LOGIN', 'url' => ['#']],
+        ['label' => 'FUR HANDLER', 'url' => ['#'], 'linkOptions' => ['class' => 'btn btn-primary']],
+    ];
+    echo Nav::widget([
+//        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right  header-nav-links'],
+        'items' => $menuItems,
+    ]);
+    NavBar::end();
+    ?>
 
-    <div class="container-fluid" id="top_search">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">Search</div>
+            <div class="col-md-12 top-search-block"></div>
         </div>
     </div>
 
@@ -62,9 +89,24 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <div class="row">
+            <div class="col-md-12 footer-wrap">
+                <div class="footer-logo text-center"><?= Html::img('@web/images/bottom_logo.png', ['class' => 'footer-logo-img']); ?></div>
+                <div class="footer-copy text-center">
+                    Copyright © 2015 - 2017 Review Bridge Research GmbH Alle Rechte vorbehalten
+                </div>
+                <div class="footer-menu text-center">
+                    <ul>
+                        <li>EINFACH.KAUFEN</li>
+                        <li>IMPRESSUM</li>
+                        <li>DATENSCHUTZ</li>
+                        <li>KONTACT</li>
+                        <li>AGB VERBRAUCHER</li>
+                        <li>AGB HANDLER</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
